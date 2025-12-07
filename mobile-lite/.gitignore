@@ -1,1 +1,7 @@
+node_modules
+.expo
+.expo-shared
+web-build
+dist
+.build
 // estrutura inicial
