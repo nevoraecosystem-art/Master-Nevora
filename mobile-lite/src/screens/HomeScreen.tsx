@@ -194,3 +194,4 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+// implementado na Etapa 2

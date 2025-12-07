@@ -126,3 +126,4 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileScreen;
+// implementado na Etapa 2

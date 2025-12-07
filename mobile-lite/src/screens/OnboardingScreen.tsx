@@ -189,3 +189,4 @@ const styles = StyleSheet.create({
 });
 
 export default OnboardingScreen;
+// implementado na Etapa 2

@@ -100,3 +100,4 @@ const styles = StyleSheet.create({
 });
 
 export default TasksScreen;
+// implementado na Etapa 2
