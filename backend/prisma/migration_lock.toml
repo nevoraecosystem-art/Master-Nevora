@@ -1,0 +1,2 @@
+# This file was written manually because the environment could not run prisma migrate.
+provider = "sqlite"
