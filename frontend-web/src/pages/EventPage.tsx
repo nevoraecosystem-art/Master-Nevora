@@ -98,3 +98,4 @@ const EventPage = () => {
 };
 
 export default EventPage;
+// implementado na Etapa 2

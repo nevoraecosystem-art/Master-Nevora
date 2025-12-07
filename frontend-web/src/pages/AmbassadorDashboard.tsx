@@ -68,3 +68,4 @@ const AmbassadorDashboard = () => {
 };
 
 export default AmbassadorDashboard;
+// implementado na Etapa 2

@@ -103,3 +103,4 @@ const Home = () => {
 };
 
 export default Home;
+// implementado na Etapa 2

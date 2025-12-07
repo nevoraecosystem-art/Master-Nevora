@@ -22,3 +22,4 @@ if (root) {
     </React.StrictMode>
   );
 }
+// implementado na Etapa 2

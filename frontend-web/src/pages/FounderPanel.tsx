@@ -102,3 +102,4 @@ const FounderPanel = () => {
 };
 
 export default FounderPanel;
+// implementado na Etapa 2
