@@ -3,6 +3,7 @@ generator client {
 }
 
 datasource db {
+  provider = "sqlite"
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
@@ -21,6 +22,69 @@ enum TransactionType {
 }
 
 model User {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  password       String
+  name           String?
+  role           UserRole @default(CLIENT)
+  wallet         Wallet?
+  producedEvents Event[]  @relation("ProducerEvents")
+  tickets        Ticket[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Wallet {
+  id           String        @id @default(cuid())
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @unique
+  balanceNEV   Decimal       @default(0)
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Transaction {
+  id          String           @id @default(cuid())
+  wallet      Wallet           @relation(fields: [walletId], references: [id])
+  walletId    String
+  amount      Decimal
+  type        TransactionType
+  description String?
+  createdAt   DateTime         @default(now())
+}
+
+model Event {
+  id          String          @id @default(cuid())
+  title       String
+  description String?
+  basePrice   Decimal
+  producer    User            @relation("ProducerEvents", fields: [producerId], references: [id])
+  producerId  String
+  analytics   EventAnalytics?
+  tickets     Ticket[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Ticket {
+  id        String   @id @default(cuid())
+  event     Event    @relation(fields: [eventId], references: [id])
+  eventId   String
+  buyer     User     @relation(fields: [buyerId], references: [id])
+  buyerId   String
+  pricePaid Decimal
+  createdAt DateTime @default(now())
+}
+
+model EventAnalytics {
+  id          String   @id @default(cuid())
+  event       Event    @relation(fields: [eventId], references: [id])
+  eventId     String   @unique
+  views       Int      @default(0)
+  ticketsSold Int      @default(0)
+  revenue     Decimal  @default(0)
+  updatedAt   DateTime @updatedAt
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
