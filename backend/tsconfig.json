@@ -12,5 +12,16 @@
     "types": ["node", "express"]
   },
   "include": ["src/**/*.ts", "prisma/**/*.ts"],
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "types": ["node", "jest"],
+    "skipLibCheck": true
+  },
+  "include": ["src", "test"],
   "exclude": ["node_modules", "dist"]
 }
