@@ -121,3 +121,4 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
+// implementado na Etapa 2

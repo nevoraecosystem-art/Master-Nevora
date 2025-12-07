@@ -158,3 +158,4 @@ const styles = StyleSheet.create({
 });
 
 export default ChatScreen;
+// implementado na Etapa 2

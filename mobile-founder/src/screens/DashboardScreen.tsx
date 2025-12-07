@@ -148,3 +148,4 @@ const styles = StyleSheet.create({
 });
 
 export default DashboardScreen;
+// implementado na Etapa 2
